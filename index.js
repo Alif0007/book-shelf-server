@@ -46,6 +46,13 @@ async function run() {
             res.send(result)
         })
 
+        // Top Rated 6 Books
+        app.get('/topbooks', async (req, res) => {
+            const cursor = bookCollection.find().sort({ rating: -1 }).limit(6)
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
         //To add a book
         app.post('/books', async (req, res) => {
             const newBook = req.body
