@@ -56,7 +56,7 @@ async function run() {
         //To add a book
         app.post('/books', async (req, res) => {
             const newBook = req.body
-            const result = await bookCollection.insertOne(newBook)
+            const result = await bookCollection.insertOne(newBook);
             res.send(result);
         })
 
