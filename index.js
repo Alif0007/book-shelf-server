@@ -33,9 +33,8 @@ async function run() {
 
         // To find all the books
         app.get('/books', async (req, res) => {
-            const cursor = bookCollection.find()
+            const cursor = bookCollection.find();
             const result = await cursor.toArray();
-
             res.send(result)
         })
 
