@@ -39,7 +39,7 @@ async function run() {
         })
 
         // To find Users own books
-        app.get('/books', async (req, res) => {
+        app.get('/mybooks', async (req, res) => {
             const email = req.query.email
             let query = {}
             if (email) {
