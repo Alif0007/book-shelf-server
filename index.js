@@ -38,6 +38,19 @@ async function run() {
             res.send(result)
         })
 
+        // To find Users own books
+        app.get('/books', async (req, res) => {
+            const email = req.query.email
+            let query = {}
+            if (email) {
+                query.userEmail = email;
+
+            }
+            const cursor = bookCollection.find(query);
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
         // To find a single book
         app.get('/books/:id', async (req, res) => {
             const id = req.params.id
